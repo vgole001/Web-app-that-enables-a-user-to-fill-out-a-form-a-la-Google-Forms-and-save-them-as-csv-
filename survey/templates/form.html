@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form onsubmit = "return validate(event)" action="/form" method="post">
+        <!-- TODO -->
+        <div class="form-row">
+            <div class="col-md-2 mb-3">
+                <input name = "name" type="text" class="form-control" id="name" placeholder="Name" required>
+            </div>
+        </div>
+        <div class = "form-row">
+            <div  class="col-md-2 mb-3">
+                <select name = "home" class="custom-select" required>
+                  <option value="">Home</option>
+                  <option value="Gryffindor">Gryffindor</option>
+                  <option value="Ravenclaw">Ravenclaw</option>
+                  <option value="Hufflepuff">Hufflepuff</option>
+                </select>
+          </div>
+        </div>
+        <fieldset name = "radioData" class="form-group">
+            <div class="row">
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Beater" required>
+                  <label class="form-check-label" for="gridRadios1">
+                    Beater
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Chaser">
+                  <label class="form-check-label" for="gridRadios2">
+                    Chaser
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Keeper">
+                  <label class="form-check-label" for="gridRadios3">
+                    Keeeper
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="Seeker">
+                  <label class="form-check-label" for="gridRadios4">
+                    Seeker
+                  </label>
+                </div>
+              </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <div class="form-check">
+              <input name = "terms" id = "terms" class="form-check-input" type="checkbox">
+              <label class="form-check-label">
+                Agree to the terms and rules.
+              </label>
+            </div>
+        </div>
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <input class="btn btn-primary" type="submit">
+    </form>
+
+    <script type = "text/javascript">
+        function validate(e){
+            if (!document.querySelector('#terms').checked){
+                alert("Accept our terms and rules to proceed.");
+                e.preventDefault();
+                //return false;
+            }else{
+                return true;
+            }
+        }
+
+    </script>
+
+{% endblock %}

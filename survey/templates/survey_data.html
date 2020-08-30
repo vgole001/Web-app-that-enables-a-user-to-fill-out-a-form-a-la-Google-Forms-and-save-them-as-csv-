@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+    <!-- http://getbootstrap.com/docs/4.1/components/alerts/ -->
+    <div>
+        <h4 class="h1">Sheet</h4>
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Home</th>
+                <th scope="col">Position</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for item in range(total) %}
+                <tr>
+                    <td> {{names[item]}} </td>
+                    <td> {{homes[item]}} </td>
+                    <td> {{positions[item]}} </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+{% endblock %}
